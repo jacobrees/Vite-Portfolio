@@ -7,6 +7,10 @@
   font-family: "Michroma", sans-serif;
 }
 
+.lenis.lenis-smooth {
+  scroll-behavior: auto;
+}
+
 .navbar {
   width: 100%;
   position: fixed;
@@ -54,6 +58,10 @@
 .projects-title {
   color: white;
   text-align: center;
+}
+
+.project-img {
+  width: 500px;
 }
 
 /* Large devices */

@@ -56,4 +56,9 @@ enlargeProjectsTitle.to(projectsTitle, {
   fontSize: 50,
 });
 
+gsap.from(".project-img", {
+  scrollTrigger: ".project-img",
+  x: -500
+})
+
 
