@@ -2,12 +2,34 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Michroma&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css">
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, maximum-scale=1"
+    />
+    <title>Jacob Rees</title>
   </head>
   <body>
-    <div id="app"></div>
-    <script type="module" src="/main.js"></script>
+    <div class="navbar">
+      <div class="name-text-invisible"><p class="links">Home</p></div>
+      <h1 class="name-title">J<span class="name-text-invisible">acob </span>R<span class="name-text-invisible">ees</span></h1>
+      <p class="links">About</p>
+    </div>
+    <div class="home-name-container">
+        <p class="scroll-text">Scroll</p>
+    </div>
+    <div class="projects-container">
+      <h2 class="projects-title">Projects</h2>
+    <img src="./assets/Space-Dodger.png" alt="project img">
+    </div>
   </body>
+  <script type="module" src="main.js"></script>
 </html>

@@ -1,24 +1,59 @@
-import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-import { setupCounter } from './counter.js'
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-document.querySelector('#app').innerHTML = `
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="${viteLogo}" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">
-      <img src="${javascriptLogo}" class="logo vanilla" alt="JavaScript logo" />
-    </a>
-    <h1>Hello Vite!</h1>
-    <div class="card">
-      <button id="counter" type="button"></button>
-    </div>
-    <p class="read-the-docs">
-      Click on the Vite logo to learn more
-    </p>
-  </div>
-`
+gsap.registerPlugin(ScrollTrigger);
 
-setupCounter(document.querySelector('#counter'))
+ScrollTrigger.defaults({
+  markers: true,
+});
+
+const homeContainer = document.querySelector(".home-name-container");
+const nameTitle = document.querySelector(".name-title");
+
+const nameToNavbar = gsap.timeline({
+  scrollTrigger: {
+    trigger: homeContainer,
+    start: "top center",
+    end: "bottom top",
+    scrub: 1,
+  },
+});
+nameToNavbar.from(nameTitle, {
+  fontSize: 90,
+  duration: 1,
+  y: screen.height / 2,
+});
+
+const scrollText = document.querySelector(".scroll-text");
+
+const scrollDisappear = gsap.timeline({
+  scrollTrigger: {
+    trigger: homeContainer,
+    start: "top top",
+    end: "center top",
+    scrub: 1,
+  },
+});
+
+scrollDisappear.to(scrollText, {
+  opacity: 0,
+  x: -100,
+});
+
+const projectsTitle = document.querySelector(".projects-title");
+const projectsContainer = document.querySelector(".projects-container");
+
+const enlargeProjectsTitle = gsap.timeline({
+  scrollTrigger: {
+    trigger: projectsContainer,
+    start: "top center",
+    end: "20% 20%",
+    scrub: 1,
+  },
+});
+
+enlargeProjectsTitle.to(projectsTitle, {
+  fontSize: 50,
+});
+
+

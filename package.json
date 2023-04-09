@@ -10,5 +10,9 @@
   },
   "devDependencies": {
     "vite": "^4.2.0"
+  },
+  "dependencies": {
+    "@studio-freight/lenis": "^1.0.6",
+    "gsap": "file:gsap-bonus.tgz"
   }
 }
