@@ -1,3 +1,4 @@
+import "./style.scss"
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
@@ -47,7 +48,7 @@ const enlargeProjectsTitle = gsap.timeline({
   scrollTrigger: {
     trigger: projectsContainer,
     start: "top center",
-    end: "20% 20%",
+    end: "bottom 10%",
     scrub: 1,
   },
 });
@@ -58,7 +59,5 @@ enlargeProjectsTitle.to(projectsTitle, {
 
 gsap.from(".project-img", {
   scrollTrigger: ".project-img",
-  x: -500
-})
-
-
+  x: -500,
+});
