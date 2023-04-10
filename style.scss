@@ -1,84 +1,470 @@
 /* XL devices (default) */
-/* ...code... */
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Michroma", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 
-.lenis.lenis-smooth {
-  scroll-behavior: auto;
+html {
+  scroll-behavior: smooth;
+}
+
+.loading-screen {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1000;
+  background-color: rgb(255, 255, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.75s, visibility 0.75s;
+}
+
+.loader-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.loading-title {
+  font-family: "Darker Grotesque", sans-serif;
+  font-size: 65px;
+  font-weight: bold;
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  visibility: hidden;
+}
+
+.char {
+  transform: translateY(115px);
+  transition: transform 0.5s;
 }
 
 .navbar {
   width: 100%;
   position: fixed;
+  top: 0;
+  z-index: 999;
+  background-color: #fff;
+}
+
+.navbar-container {
+  height: 70px;
+  padding: 0 100px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  top: 0;
-  height: 100px;
-  border-bottom: 1px solid white;
-  padding: 50px;
-  background-color: black;
-  z-index: 999;
+  max-width: 1500px;
+  margin: 0 auto;
 }
 
-.links {
-  color: white;
-  font-size: 24px;
+.title-text {
+  font-family: "Darker Grotesque", sans-serif;
+  font-weight: bold;
+  font-size: 40px;
+}
+
+.nav-links-container {
+  display: flex;
+}
+
+.hamburger-menu {
+  display: none;
+}
+
+.mobile-navbar {
+  display: none;
+}
+
+.nav-links {
+  color: black;
+  text-decoration: none;
+  margin: 0 25px;
+}
+
+.nav-link {
   cursor: pointer;
 }
 
-.home-name-container {
-  width: 100%;
-  background-color: black;
+#particles-js {
+  position: fixed;
+  top: 0;
+  width: 100vw;
   height: 100vh;
+  z-index: -1;
+}
+
+.home-background {
+  background-color: #ffffffb0;
+  width: 100%;
+  padding-bottom: 30px;
+}
+
+.home-content {
+  padding: 120px 100px 0 100px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.home-section {
+  width: 100%;
   display: flex;
-  align-items: end;
-  justify-content: center;
+  justify-content: space-between;
+  margin-top: 50px;
 }
 
-.name-title {
+.home-text-title {
+  font-family: "Darker Grotesque", sans-serif;
+  font-size: 65px;
+  line-height: 85px;
+}
+
+.home-title-coma {
+  color: #d5d5d5;
+}
+
+.my-name {
+  color: #5b38e2;
+}
+
+.home-text-description {
+  font-size: 20px;
+  margin-top: 25px;
+  color: #575757;
+  line-height: 28px;
+}
+
+.home-links {
+  margin-top: 50px;
+  display: flex;
+  width: 100%;
+}
+
+.home-get-in-touch {
+  background-color: #5b38e2;
   color: white;
+  text-decoration: none;
+  padding: 20px;
+}
+
+.home-github {
+  background-color: #1f1f1f;
+  color: white;
+  text-decoration: none;
+  padding: 20px;
+  margin-left: 10px;
+}
+
+.my-photo {
+  border-radius: 50%;
+}
+
+.about-me-section {
+  width: 100%;
+  background-color: #202020;
+}
+
+.about-me-title {
+  font-family: "Darker Grotesque", sans-serif;
+  color: white;
+  text-align: center;
+  font-size: 45px;
+  padding-top: 30px;
+}
+
+.about-me-text {
+  color: white;
+  text-align: center;
+  padding: 30px 300px;
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.showcase-section {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #ffffffb0;
+}
+
+.showcase-title {
+  font-family: "Darker Grotesque", sans-serif;
   font-size: 40px;
-  position: relative;
-}
-
-.scroll-text {
-  color: white;
+  padding-top: 20px;
+  text-align: center;
+  font-weight: bold;
 }
 
 .projects-container {
-  width: 100%;
-  height: 800px;
-  background-color: black;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
 }
 
-.projects-title {
-  color: white;
+.project-container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.project-container:last-of-type {
+  padding-bottom: 10px;
+}
+
+.project-title {
   text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  font-family: "Darker Grotesque", sans-serif;
+}
+
+.project-content-container {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+  width: 100%;
+}
+
+.project-content-container-invert {
+  display: flex;
+  justify-content: space-between;
+  margin: 15px 0;
+  width: 100%;
+  flex-direction: row-reverse;
 }
 
 .project-img {
-  width: 500px;
+  width: 100%;
+  border-radius: 2%;
+  border: #919191 solid 1px;
+}
+
+.project-description-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  margin: 0 15px;
+}
+
+.project-technologies {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
+
+.project-technology {
+  color: white;
+  background-color: #575757;
+  border: #1f1f1f 1px solid;
+  margin: 3px;
+}
+
+.project-description {
+  font-family: "Inter", sans-serif;
+  font-size: 20px;
+  color: #575757;
+  line-height: 28px;
+}
+
+.project-links {
+  margin-top: 5px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.website-link {
+  color: white;
+  background-color: #202020;
+  text-decoration: none;
+  padding: 5px;
+  border-radius: 15%;
+}
+
+.github-link {
+  color: white;
+  background-color: #202020;
+  text-decoration: none;
+  padding: 5px;
+  border-radius: 15%;
+}
+
+.get-in-touch-section {
+  width: 100%;
+  background-color: #202020;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.get-in-touch-title {
+  font-family: "Darker Grotesque", sans-serif;
+  color: white;
+  text-align: center;
+  font-size: 45px;
+  padding-top: 20px;
+}
+
+.get-in-touch-footer-link {
+  background-color: #5b38e2;
+  color: white;
+  text-decoration: none;
+  padding: 20px;
+  border-radius: 5px;
+  margin-top: 15px;
+  margin-bottom: 20px;
 }
 
 /* Large devices */
 @media only screen and (max-width: 1199.98px) {
-  /* ...code... */
+  .my-photo {
+    display: none;
+  }
+
+  .about-me-text {
+    padding: 30px 150px;
+  }
+
+  .project-description-container {
+    margin: 0;
+  }
+
+  .project-content-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 80%;
+  }
+
+  .project-content-container-invert {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 80%;
+  }
 }
 
 /* Medium devices */
 @media only screen and (max-width: 991.98px) {
-  /* ...code... */
+  .about-me-text {
+    padding: 30px 100px;
+  }
 }
 
 /* Small devices */
 @media only screen and (max-width: 767.98px) {
-  .name-text-invisible {
+  .loading-title {
+    font-size: 45px;
+  }
+
+  .navbar-container {
+    padding: 0 50px;
+  }
+
+  .title-text {
+    font-size: 60px;
+  }
+
+  .hamburger-menu {
+    display: block;
+    width: 60px;
+    cursor: pointer;
+    height: 45px;
+    position: relative;
+    margin: 50px auto;
+    transform: rotate(0deg);
+    transition: 0.5s ease-in-out;
+  }
+
+  .hamburger-menu span {
+    display: block;
+    position: absolute;
+    height: 9px;
+    width: 100%;
+    background: #000;
+    border-radius: 9px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: 0.25s ease-in-out;
+  }
+
+  .hamburger-menu span:nth-child(1) {
+    top: 0;
+  }
+
+  .hamburger-menu span:nth-child(2) {
+    top: 18px;
+  }
+
+  .hamburger-menu span:nth-child(3) {
+    top: 36px;
+  }
+
+  .hamburger-menu.open span:nth-child(1) {
+    top: 18px;
+    transform: rotate(135deg);
+  }
+
+  .hamburger-menu.open span:nth-child(2) {
+    opacity: 0;
+    left: -60px;
+  }
+
+  .hamburger-menu.open span:nth-child(3) {
+    top: 18px;
+    transform: rotate(-135deg);
+  }
+
+  .nav-links {
     display: none;
+  }
+
+  .mobile-navbar {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    top: 70px;
+    left: 0;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    z-index: 999;
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-in-out;
+  }
+
+  .mobile-navbar.show {
+    transform: translateX(0);
+  }
+
+  .mobile-nav-links {
+    font-size: 40px;
+    color: black;
+    text-decoration: none;
+    margin: 15px 0;
+    border-bottom: 1px solid black;
+  }
+
+  .home-content {
+    padding: 20px 50px 0 50px;
+  }
+
+  .about-me-text {
+    padding: 30px 50px;
+  }
+
+  .project-content-container {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  .project-content-container-invert {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    width: 90%;
   }
 }

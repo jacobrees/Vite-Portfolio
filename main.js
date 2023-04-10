@@ -1,63 +1,53 @@
-import "./style.scss"
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
+import "./style.scss";
+import gsap from "gsap";
+import SplitType from "split-type";
 
-gsap.registerPlugin(ScrollTrigger);
+const menu = document.querySelector(".hamburger-menu");
+const mobileNav = document.querySelector(".mobile-navbar");
+const mobileNavLinks = document.querySelectorAll(".mobile-nav-links");
+const loader = document.querySelector(".loading-screen");
+const loadingText = document.querySelector(".loading-title");
 
-ScrollTrigger.defaults({
-  markers: true,
+loadingText.style.visibility = "visible";
+
+new SplitType("#loading-text");
+
+gsap.to(".char", {
+  y: 0,
+  stagger: 0.05,
+  delay: 0.2,
+  duration: 0.1,
 });
 
-const homeContainer = document.querySelector(".home-name-container");
-const nameTitle = document.querySelector(".name-title");
-
-const nameToNavbar = gsap.timeline({
-  scrollTrigger: {
-    trigger: homeContainer,
-    start: "top center",
-    end: "bottom top",
-    scrub: 1,
-  },
-});
-nameToNavbar.from(nameTitle, {
-  fontSize: 90,
-  duration: 1,
-  y: screen.height / 2,
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    loader.classList.add("loader-hidden");
+  }, 1200);
 });
 
-const scrollText = document.querySelector(".scroll-text");
-
-const scrollDisappear = gsap.timeline({
-  scrollTrigger: {
-    trigger: homeContainer,
-    start: "top top",
-    end: "center top",
-    scrub: 1,
-  },
+menu.addEventListener("click", () => {
+  menu.classList.toggle("open");
+  mobileNav.classList.toggle("show");
 });
 
-scrollDisappear.to(scrollText, {
-  opacity: 0,
-  x: -100,
+mobileNavLinks.forEach((navLink) => {
+  navLink.addEventListener("click", () => {
+    menu.classList.toggle("open");
+    mobileNav.classList.toggle("show");
+  });
 });
 
-const projectsTitle = document.querySelector(".projects-title");
-const projectsContainer = document.querySelector(".projects-container");
+const navLinks = document.querySelectorAll(".nav-link");
 
-const enlargeProjectsTitle = gsap.timeline({
-  scrollTrigger: {
-    trigger: projectsContainer,
-    start: "top center",
-    end: "bottom 10%",
-    scrub: 1,
-  },
-});
-
-enlargeProjectsTitle.to(projectsTitle, {
-  fontSize: 50,
-});
-
-gsap.from(".project-img", {
-  scrollTrigger: ".project-img",
-  x: -500,
+navLinks.forEach((navLink) => {
+  navLink.addEventListener("click", (e) => {
+    e.preventDefault();
+    const id = navLink.textContent;
+    const section = document.getElementById(id);
+    const position = section.offsetTop - 70;
+    window.scrollTo({
+      top: position,
+      behavior: "smooth",
+    });
+  });
 });
