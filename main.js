@@ -7,7 +7,6 @@ import * as dat from "lil-gui";
  * Base
  */
 
-
 // Canvas
 const canvas = document.querySelector("canvas.webgl");
 
@@ -15,7 +14,7 @@ const canvas = document.querySelector("canvas.webgl");
 const scene = new THREE.Scene();
 
 // Objects
-const geometry = new THREE.ConeGeometry( 0.2, 0.5, 4 );
+const geometry = new THREE.ConeGeometry(0.2, 0.5, 4);
 
 // Materials
 
@@ -69,7 +68,6 @@ camera.position.x = 0;
 camera.position.y = 0;
 camera.position.z = 3;
 
-
 scene.add(camera);
 
 /**
@@ -82,19 +80,33 @@ renderer.setSize(sizes.width, sizes.height);
 renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
 renderer.setClearColor(0xffffff, 0);
 
-// move camera based on mouse position 
+// move camera based on mouse position
 
+// cursor
+const cursor = {};
+cursor.x = 0;
+cursor.y = 0;
+
+window.addEventListener("mousemove", (event) => {
+  cursor.x = event.clientX / sizes.width - 0.5;
+  cursor.y = -(event.clientY / sizes.height - 0.5);
+});
 
 /**
  * Animate
  */
 const clock = new THREE.Clock();
+let previousTime = 0;
 
 const tick = () => {
   const elapsedTime = clock.getElapsedTime();
-  camera.lookAt(new THREE.Vector3(0, 0, 0))
-  camera.position.x = Math.sin(elapsedTime) * 2;
-  camera.position.y = Math.cos(elapsedTime) * 2;
+  const deltaTime = elapsedTime - previousTime;
+  previousTime = elapsedTime;
+  camera.lookAt(new THREE.Vector3(0, 0, 0));
+  const parallaxX = cursor.x * 0.5;
+  const parallaxY = -cursor.y * 0.5;
+  camera.position.x += (parallaxX - camera.position.x) * 5 * deltaTime;
+  camera.position.y += (parallaxY - camera.position.y) * 5 * deltaTime;
   // Render
   renderer.render(scene, camera);
 
