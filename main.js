@@ -3,8 +3,6 @@ import gsap from "gsap";
 import SplitType from "split-type";
 import * as THREE from "three";
 import * as dat from "lil-gui";
-import { TextGeometry } from "three/examples/jsm/geometries/TextGeometry.js";
-import { FontLoader } from "three/examples/jsm/loaders/FontLoader.js";
 /**
  * Base
  */
