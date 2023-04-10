@@ -8,27 +8,7 @@ import { FontLoader } from "three/examples/jsm/loaders/FontLoader.js";
 /**
  * Base
  */
-// Font loader
-const fontLoader = new FontLoader();
 
-fontLoader.load("static/helvetiker_regular.typeface.json", (font) => {
-  const textGeometry = new TextGeometry("Creative", {
-    font: font,
-    size: 0.5,
-    height: 0.2,
-    curveSegments: 5,
-    bevelEnabled: true,
-    bevelThickness: 0.03,
-    bevelSize: 0.02,
-    bevelOffset: 0,
-    bevelSegments: 4,
-  });;
-  textGeometry.computeBoundingBox()
-  textGeometry.center()
-  const textMaterial = new THREE.MeshBasicMaterial( { color: 0x000000 });
-  const text = new THREE.Mesh(textGeometry, textMaterial);
-  scene.add(text);
-})
 
 // Canvas
 const canvas = document.querySelector("canvas.webgl");
