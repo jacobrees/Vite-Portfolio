@@ -87,7 +87,12 @@ html {
   cursor: pointer;
 }
 
-
+.webgl {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
 
 .home-background {
   background-color: #ffffffb0;

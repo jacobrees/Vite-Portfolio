@@ -15,6 +15,8 @@
   "dependencies": {
     "@studio-freight/lenis": "^1.0.6",
     "gsap": "file:gsap-bonus.tgz",
-    "split-type": "^0.3.3"
+    "lil-gui": "^0.18.1",
+    "split-type": "^0.3.3",
+    "three": "^0.151.3"
   }
 }
