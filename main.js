@@ -16,21 +16,35 @@ const scene = new THREE.Scene();
 // Objects
 const geometry = new THREE.ConeGeometry(0.2, 0.5, 4);
 
+// Particles
+const particlesGeometry = new THREE.BufferGeometry();
+const particlesCount = 5000;
+
+const posArray = new Float32Array(particlesCount * 3);
+
+for (let i = 0; i < particlesCount * 3; i++) {
+  posArray[i] = (Math.random() - 0.5) * 5;
+}
+
+particlesGeometry.setAttribute(
+  "position",
+  new THREE.BufferAttribute(posArray, 3)
+);
+
 // Materials
 
-const material = new THREE.MeshBasicMaterial();
-material.color = new THREE.Color(0x000000);
+const material = new THREE.MeshBasicMaterial({
+  color: 0x000000,
+  wireframe: true,
+});
+const particlesMaterial = new THREE.PointsMaterial({
+  size: 0.005,
+  color: 0x000000,
+});
 
 // Mesh
-for (let i = 0; i < 100; i++) {
-  const mesh = new THREE.Mesh(geometry, material);
-  mesh.position.x = (Math.random() - 0.5) * 10;
-  mesh.position.y = (Math.random() - 0.5) * 10;
-  mesh.position.z = (Math.random() - 0.5) * 10;
-  mesh.rotation.x = (Math.random() - 0.5) * 10;
-  mesh.rotation.y = (Math.random() - 0.5) * 10;
-  scene.add(mesh);
-}
+const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+scene.add(particlesMesh);
 
 /**
  * Sizes
